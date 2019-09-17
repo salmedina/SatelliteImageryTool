@@ -1,4 +1,4 @@
-# Satellite Imagery Tool
+# Satellite Image Seearch Tool
 
 This tool shows satellite images based on a search term and a certain location.
 
