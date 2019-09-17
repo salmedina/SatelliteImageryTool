@@ -16,7 +16,7 @@ Bootstrap(app)
 def search():
     search_result = {}
 
-    if flask.request.method == 'GET':
+    if flask.request.method == 'POST':
         search_term = flask.request.values.get('searchTerm')
         search_lat = flask.request.values.get('searchLat')
         search_lng = flask.request.values.get('searchLng')
