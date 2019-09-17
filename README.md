@@ -1,8 +1,8 @@
 # Satellite Imagery Tool
 
-This tool is intended to be used to show satellite images from a search term for a certain location.
+This tool shows satellite images based on a search term and a certain location.
 
-For example, you could search for **Monuments** located on **Washington, D.C.** and the tools will display all the monuments found within a 10 Km radius.
+For example, you could search for **Monuments** located on **Washington, D.C.** and the tool will display all the monuments found within a 10 Km radius.
 
 ![GUI Sample](images/MonumentSatelliteSearch.png)
 
@@ -21,3 +21,9 @@ python3 -u app.py --ip=<server_ip> --port=<server_port>
 ```
 
 by default the server_ip is *0.0.0.0* and the port is set to *5000*.
+
+Then access the service via the browser of your preference:
+
+```
+http://localhost:5000/search
+```
