@@ -1,4 +1,4 @@
-# SatelliteImageryTool
+# Satellite Imagery Tool
 
 This tool is intended to be used to show satellite images from a search term for a certain location.
 
