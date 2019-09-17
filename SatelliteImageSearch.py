@@ -9,7 +9,14 @@ class SatelliteImageSearch():
         self.gmaps = googlemaps.Client(key=api_key)
         self.api_key = api_key
 
-    def search(self, search_term, lat, lng, width=400, height=400, zoom_level=18, format='png'):
+    def search(self, search_term, location, width=400, height=400, zoom_level=18, format='png'):
+
+        geocode_res = self.gmaps.geocode(location)
+        geocode_location = geocode_res[0]['geometry']['location']
+        lat = geocode_location['lat']
+        lng = geocode_location['lng']
+        print(f'Geo-coords for {location}  lat: {lat}   lng:{lng}')
+
         num_pages = 0
         gmaps_results = []
         res = self.gmaps.places(search_term, location=(lat, lng))

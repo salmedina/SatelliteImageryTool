@@ -14,17 +14,15 @@ Bootstrap(app)
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
-    search_form = dict(term='mosque', lat=34.083672, lng=74.797279)
+    search_form = dict(term='mosque', location='Srinagar, Kashmir')
     search_result = {}
 
     if flask.request.method == 'POST':
         search_term = flask.request.values.get('searchTerm')
-        search_lat = flask.request.values.get('searchLat')
-        search_lng = flask.request.values.get('searchLng')
+        search_loc = flask.request.values.get('searchLoc')
 
-        search_form = dict(term=search_term, lat=search_lat, lng=search_lng)
-        search_result = satSearch.search(search_term, search_lat, search_lng)
-
+        search_form = dict(term=search_term, location=search_loc)
+        search_result = satSearch.search(search_term=search_term, location=search_loc)
 
     return render_template('search.html', search_form=search_form, place_list=search_result)
 

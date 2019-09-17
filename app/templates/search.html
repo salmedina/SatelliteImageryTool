@@ -48,8 +48,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0" method="POST" action="{{ url_for('search') }}">
       <input class="form-control mr-sm-2" type="text" placeholder="Search Term" aria-label="SearchTerm" name="searchTerm" value="{{ search_form.term }}">
-      <input class="form-control mr-sm-2" type="text" placeholder="Latitude" aria-label="SearchLat" name="searchLat" value="{{ search_form.lat }}">
-      <input class="form-control mr-sm-2" type="text" placeholder="Longitude" aria-label="SearchLng" name="searchLng" value="{{ search_form.lng }}">
+      <input class="form-control mr-sm-2" type="text" placeholder="Location" aria-label="SearchLoc" name="searchLoc" value="{{ search_form.location }}">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
@@ -58,10 +57,10 @@
 <main role="main" class="container">
 
   {% for place_info in place_list %}
-      <div class="row">
+      <div class="row mb-2">
         <div class="col">
           <div class="card">
-            <iframe class="card-img-top"  src="https://maps.google.com/maps?q={{ place_info.lat  }},{{ place_info.lng }}&z=18&amp;output=embed&t=k" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            <iframe class="card-img-top"  src="https://maps.google.com/maps?q={{ place_info.lat  }},{{ place_info.lng }}&z=19&amp;output=embed&t=k" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
               <div class="card-body">
                 <h5 class="card-title">{{ place_info.name }}</h5>
                 <p class="card-text">Lat: {{ place_info.lat  }}  Lng: {{ place_info.lng }}</p>
