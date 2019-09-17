@@ -1,4 +1,4 @@
-
+import argparse
 import flask
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
@@ -27,4 +27,9 @@ def search():
     return render_template('search.html', search_form=search_form, place_list=search_result)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--ip', type=str, default='0.0.0.0', help='Server IP')
+    parser.add_argument('--port', type=int, default=5000, help='Server port')
+    args = parser.parse_args()
+
+    app.run(debug=True, host=args.ip, port=args.port)
