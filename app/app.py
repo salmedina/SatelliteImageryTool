@@ -3,7 +3,7 @@ import flask
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 import os
-from SatelliteImageryTool.SatelliteImageSearch import SatelliteImageSearch
+from SatelliteImageSearch import SatelliteImageSearch
 
 api_key = open('key.txt').readline().strip()
 satSearch = SatelliteImageSearch(api_key)
