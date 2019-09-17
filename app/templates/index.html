@@ -1,0 +1,73 @@
+{% extends "bootstrap/base.html" %}
+
+
+{% block content %}
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="static/lti_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Face re-id
+  </a>
+</nav>
+<div class="container">
+	<div class="row" > <!-- AQUI IMAGEN Y DETALLES -->
+		<div class="col-4" style="height: 250px">
+			<img src="{{ display_image }}" alt="Image" class="rounded mx-auto d-block" style="max-height: 100%;display:block;width:auto">
+		</div>
+		<div class="col-8">
+			<ul class="list-group">
+				<li class="list-group-item">Path:        	image/IC0011X4V.jpg</li>
+				<li class="list-group-item">Dimensions:  	320x180</li>
+				<li class="list-group-item">Document ID: 	IC0011X4V</li>
+				<li class="list-group-item">Num. Faces:  	1</li>
+				<li class="list-group-item">Named-Entities: UNK </li>
+			</ul>
+			<div style="overflow:scroll; height:120px;">
+				<table class="table">
+					<tr>
+					{% for i in 1, %}
+						<th>
+							<a href="#" class="card-block clearfix">
+							<div class="card">
+  								<img style="height:85px;width:auto;" class="rounded mx-auto d-block" src="{{ face_image }}" alt="Card image cap">
+							</div>
+							</a>
+						</th>
+					{% endfor %}
+					<tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<div style="overflow:scroll; height:500px;">
+				<table class="table">
+					<thead>
+					  <tr>
+						  <th scope="col">Name</th>
+						  <th scope="col">Satellite Image</th>
+						  <th scope="col">Coordinates</th>
+					  </tr>
+					</thead>
+					<tbody>
+					{% for image_data in image_data_list %}
+						<tr>
+							<td><a href="#!">{{ image_data.name }}</a></td>
+							<td><a href="{{ image_data.map_link }}">{{ image_data.sat_img }}</a></td>
+							<td><a href="#!">{{ image_data.coords }}</a></td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock  %}
+
+
+{% block scripts  %}
+{{ super() }}
+
+
+{% endblock  %}
